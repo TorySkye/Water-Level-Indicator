@@ -1,2 +1,2 @@
 # Water-Level-Indicator
-Water Level Indicator with AVR 
+Water Level Indicator made with Atmega16
