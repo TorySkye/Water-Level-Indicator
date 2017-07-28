@@ -20,11 +20,11 @@ int main(void)
 	PORTB = 0xff;						// Write HIGH value to PORTB
 	PORTD = 0b01111111;					// Write LOW value to pin PD7, write HIGH value for other pins
 	
-    lcd_init(LCD_DISP_ON);				// LCD initialization
+    lcd_init(LCD_DISP_ON);					// LCD initialization
    
     while (1) 
     {
-		if (!(PINB & (1<<PB0)))			// 6th probe, Tank full
+		if (!(PINB & (1<<PB0)))				// 6th probe, Tank full
 		{
 			lcd_gotoxy(0,0); 			// Pointer to 1. row and 1. character
 			lcd_puts("Tank is full!");
@@ -32,48 +32,48 @@ int main(void)
 			lcd_puts("   ");
 			PORTD = 0b11111111;			// Buzzer ON
 		}
-		else if (!(PINB & (1<<PB1)))	// 5th probe
+		else if (!(PINB & (1<<PB1)))			// 5th probe
 		{
 			lcd_gotoxy(0,0); 
-			lcd_puts("Razina tekucine:");
+			lcd_puts("Water level:");
 			lcd_gotoxy(0,1); 
 			lcd_puts("80%");
 			PORTD = 0b01111111;			// Buzzer OFF
 			
 		}
-		else if (!(PINB & (1<<PB2)))	// 4th probe
+		else if (!(PINB & (1<<PB2)))			// 4th probe
 		{
 			lcd_gotoxy(0,0); 
-			lcd_puts("Razina tekucine:");
+			lcd_puts("Water level:");
 			lcd_gotoxy(0,1); 
 			lcd_puts("60%");
 			PORTD = 0b01111111;			
 		}
-		else if (!(PINB & (1<<PB3)))	// 3th probe
+		else if (!(PINB & (1<<PB3)))			// 3th probe
 		{
 			lcd_gotoxy(0,0); 
-			lcd_puts("Razina tekucine:");
+			lcd_puts("Water level:");
 			lcd_gotoxy(0,1); 
 			lcd_puts("40%");
 			PORTD = 0b01111111;			
 		}
-		else if (!(PIND & (1<<PD5)))	// 2th probe
+		else if (!(PIND & (1<<PD5)))			// 2th probe
 		{
 			lcd_gotoxy(0,0); 
-			lcd_puts("Razina tekucine:");
+			lcd_puts("Water level:");
 			lcd_gotoxy(0,1); 
 			lcd_puts("20%");
 			PORTD = 0b01111111;				
 		}
-		else if (!(PIND & (1<<PD6)))	// 1st probe
+		else if (!(PIND & (1<<PD6)))			// 1st probe
 		{
 			lcd_gotoxy(0,0); 
-			lcd_puts("Razina tekucine:");
+			lcd_puts("Water level:");
 			lcd_gotoxy(0,1); 
 			lcd_puts("10%");
 			PORTD = 0b01111111;			
 		}
-		else                            // Tank empty
+		else                            		// Tank empty
 		{	
 			lcd_gotoxy(0,0); 
 			lcd_puts("Tank is empty!");
